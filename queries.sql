@@ -15,3 +15,13 @@ FROM
 
 -- EXIST
 
+select * from vehicles where status != 'rented'
+
+-- WHERE
+
+select * from vehicles where type = 'car'
+
+-- GROUP BY $ HAVING
+
+select vehicle_name,count(*) as total_bookings from vehicles
+inner join bookings on vehicles.vehicle_id = bookings.vehicle_id group by vehicle_name having count(*) > 2
