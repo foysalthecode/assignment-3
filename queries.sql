@@ -15,7 +15,8 @@ FROM
 
 -- EXIST
 
-select * from vehicles where status != 'rented'
+select * from vehicles where not exists 
+(select vehicle_id from bookings where vehicles.vehicle_id = vehicle_id)
 
 -- WHERE
 
